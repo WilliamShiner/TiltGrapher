@@ -9,7 +9,7 @@ def create_animation_from_csv(file_path, output_path):
     data = pd.read_csv(file_path)
 
     # Extract data columns
-    position_values = data.iloc[:, 0]
+    positionValues = data.iloc[:, 0]
     radius = data.iloc[:, 1].abs()
     theta = np.deg2rad(data.iloc[:, 2])
 
@@ -26,9 +26,22 @@ def create_animation_from_csv(file_path, output_path):
 
     # Set up the vertical bar
     ax2 = fig.add_subplot(gs[1])
-    ax2.set_xlim(0, 2)
-    ax2.set_ylim(0, max(position_values) + 0.1 * max(position_values))
+    ax2.set_xlim(.5, .55)
+    ax2.set_ylim(0, max(positionValues) + 0.1 * max(positionValues))
     ax2.set_title("Position Visualization")
+
+    # Hide the x-axis completely
+    ax2.xaxis.set_visible(False)
+
+    # Hide spines
+    ax2.spines['left'].set_visible(False)
+    ax2.spines['right'].set_visible(False)
+    ax2.spines['top'].set_visible(False)
+    ax2.spines['bottom'].set_visible(False)
+
+    # Set y-axis ticks
+    ax2.set_yticks([0, 0.75, 1.5])
+
     rect = plt.Rectangle((0.5, 0), 0.5, 0, color='blue')
     ax2.add_patch(rect)
 
@@ -39,7 +52,7 @@ def create_animation_from_csv(file_path, output_path):
         else:
             line.set_data(theta[:i], radius[:i])
             ax1.set_rlim(0, max(radius[:i]) + 0.1 * max(radius[:i]))
-        rect.set_height(position_values[i])
+        rect.set_height(positionValues[i])
         return line, rect
 
     # Create the animation

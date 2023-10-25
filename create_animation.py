@@ -2,8 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, PillowWriter
-import tkinter as tk
-from tkinter import filedialog
+
 
 def create_animation_from_csv(file_path, output_path):
     # Load the data

@@ -22,3 +22,4 @@ if __name__ == "__main__":
         outputFile = os.path.join(outputDir, "tiltgraph_" + baseName + ".gif")
 
         create_animation_from_csv(inputFile, outputFile)
+

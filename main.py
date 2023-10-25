@@ -16,9 +16,9 @@ if __name__ == "__main__":
     if not os.path.exists(outputDir):
         os.makedirs(outputDir)
 
-    for input_file in inputFiles:
+    for inputFile in inputFiles:
         # Extract the base name of the input file and construct the name for the output file
-        baseName = os.path.splitext(os.path.basename(input_file))[0]
+        baseName = os.path.splitext(os.path.basename(inputFile))[0]
         outputFile = os.path.join(outputDir, "tiltgraph_" + baseName + ".gif")
 
-        create_animation_from_csv(input_file, outputFile)
+        create_animation_from_csv(inputFile, outputFile)

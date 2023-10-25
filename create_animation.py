@@ -34,10 +34,7 @@ def create_animation_from_csv(file_path, output_path):
     ax2.xaxis.set_visible(False)
 
     # Hide spines
-    ax2.spines['left'].set_visible(False)
-    ax2.spines['right'].set_visible(False)
-    ax2.spines['top'].set_visible(False)
-    ax2.spines['bottom'].set_visible(False)
+    ax2.spines[['left', 'right', 'top', 'bottom']].set_visible(False)
 
     # Set y-axis ticks
     ax2.set_yticks([0, 0.75, 1.5])
